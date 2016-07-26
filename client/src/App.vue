@@ -7,7 +7,8 @@
         <div class="pure-u-2-24 content-left"></div>
 
         <div class="pure-u-20-24 content-middle">
-            <home-view></home-view>
+            <!-- <home-view></home-view> -->
+            <router-view></router-view>
         </div>
 
         <div class="pure-u-2-24 content-right"></div>
@@ -17,12 +18,11 @@
 
 <script>
 import AppNav   from './components/app/AppNav';
-import HomeView from './views/HomeView';
 import store    from './vuex/store';
 
 export default {
     store: store,
-    components: { AppNav, HomeView }
+    components: { AppNav }
 }
 </script>
 

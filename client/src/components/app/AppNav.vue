@@ -1,16 +1,21 @@
 <template>
 <div class="app-header">
     <div class="app-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Pure Vue 2.0</a>
+        <router-link class="pure-menu-heading" to="/">Pure Vue 2.0</router-link>
 
         <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+            <router-link class="pure-menu-item" tag="li" to="/" exact>
+                <a class="pure-menu-link">Home</a>
+            </router-link>
+            <router-link class="pure-menu-item" tag="li" to="/dashboard">
+                <a class="pure-menu-link">Dashboard</a>
+            </router-link>
         </ul>
 
         <ul class="pure-menu-list menu-list-right">
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Settings</a></li>
+            <router-link class="pure-menu-item" tag="li" to="/settings">
+                <a class="pure-menu-link">Settings</a>
+            </router-link>
         </ul>
     </div>
 </div>
