@@ -1,20 +1,24 @@
 <template>
-<section class="app-view f-col f-center">
+<section class="app-view home-view">
+    <h1 class="view-title">Home</h1>
     <img :src="logoSrc">
-    <h1>{{ msg }}</h1>
 </section>
 </template>
 
 <script>
 export default {
+    name: 'HomeView',
     data () {
         return {
-            logoSrc: require('../assets/logo.png'),
-            msg:     'Pure Vue 2.0'
+            logoSrc: require('../assets/logo.png')
         }
     }
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
+.home-view > * {
+    max-width: 1080px;
+    margin:    0 auto;
+}
 </style>

@@ -1,35 +1,35 @@
 <template>
-<div class="app-header">
-    <div class="app-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <router-link class="pure-menu-heading" to="/">Pure Vue 2.0</router-link>
+<nav class="demo">
+    <router-link class="brand" :to="{ name: 'home' }">
+        <span>Pure Vue 2.0</span>
+    </router-link>
 
-        <ul class="pure-menu-list">
-            <router-link class="pure-menu-item" tag="li" to="/" exact>
-                <a class="pure-menu-link">Home</a>
-            </router-link>
-            <router-link class="pure-menu-item" tag="li" to="/dashboard">
-                <a class="pure-menu-link">Dashboard</a>
-            </router-link>
-            <router-link class="pure-menu-item" tag="li" to="/users">
-                <a class="pure-menu-link">Users</a>
-            </router-link>
-        </ul>
+    <!-- responsive-->
+    <input id="bmenub" type="checkbox" class="show">
+    <label for="bmenub" class="burger pseudo button">Menu</label>
 
-        <ul class="pure-menu-list menu-list-right">
-            <router-link class="pure-menu-item" tag="li" to="/logout">
-                <a class="pure-menu-link">Logout</a>
-            </router-link>
+    <div class="menu" v-if="isAuthenticated">
+        <router-link class="pseudo button" :to="{ name: 'home'}" exact>Home</router-link>
+        <router-link class="pseudo button" :to="{ name: 'dashboard'}">Dashboard</router-link>
+        <router-link class="pseudo button" :to="{ name: 'users'}">User</router-link>
+        <router-link class="pseudo button" :to="{ name: 'settings'}">Settings</router-link>
+        <router-link class="pseudo icon button" :to="{ name: 'logout'}">
+            <i class="mdi mdi-logout-variant"></i>
+        </router-link>
 
-            <router-link class="pure-menu-item" tag="li" to="/settings">
-                <a class="pure-menu-link">Settings</a>
-            </router-link>
-        </ul>
     </div>
-</div>
+</nav>
 </template>
 
 <script>
+import { isAuthenticated } from '../../vuex/getters';
+
 export default {
+    vuex: {
+        getters: {
+            isAuthenticated
+        }
+    },
     data () {
         return {
             test: 123
@@ -38,33 +38,5 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-:root {
-    @import '../../../_index.css';
-    /* TODO: This doesn't work with variables, docs say this should work `color(var(--themeColorBackground) shade(15%));` */
-    --themeColorBackgroundAltDark:   color(#34495e shade(15%));
-    --themeColorBackgroundAltDarker: color(#34495e shade(25%));
-}
-
-.app-header {
-    & .pure-menu-fixed {
-        padding:          .5em;
-        color:            var(--themeColorBackgroundAltContrast);
-        background-color: var(--themeColorBackgroundAltDark);
-    }
-
-    & .app-menu a {
-        color: var(--themeColorBackgroundAltContrast);
-    }
-
-    & .menu-list-right {
-        float: right;
-    }
-}
-.pure-menu-active > .pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
-    background-color: var(--themeColorBackgroundAltDarker);
-}
-.pure-menu-selected .pure-menu-link, .pure-menu-selected .pure-menu-link:visited {
-    color: var(--themeColorBackgroundAlt);
-}
+<style lang="scss">
 </style>

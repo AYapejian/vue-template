@@ -1,0 +1,96 @@
+// Colors (from /themes/default/colors)
+// $picnic-white:           #fff !default;
+// $picnic-black:           #111 !default;
+// $picnic-primary:         $blue !default;
+// $picnic-success:         $green !default;
+// $picnic-warning:         $orange !default;
+// $picnic-error:           $red !default;
+// $picnic-dull:            $gray !default;
+// $picnic-color-variation: 10% !default;
+//
+// $picnic-transparency: .2 !default;
+// $picnic-separation:   .6em !default;
+// $picnic-breakpoint:   60em !default;
+//
+// $picnic-radius: .2em !default;
+// $picnic-border: 1px solid #ccc !default;
+// $picnic-shadow: 0 0 .2em rgba($picnic-black, $picnic-transparency) !default;
+//                                                                          //
+// Transitions
+// $picnic-transition: all .3s;
+
+/* Coolors Exported Palette - coolors.co/f15025-00adb5-393e46-eeeeee-222831 */
+$color1: rgba(241, 80, 37, 1);
+$color2: rgba(0, 173, 181, 1);
+$color3: rgba(57, 62, 70, 1);
+$color4: rgba(238, 238, 238, 1);
+$color5: rgba(34, 40, 49, 1);
+
+
+// Here go any variables you want to overwrite
+$picnic-primary: $color1;
+$picnic-white:   $color4;
+$picnic-black:   $color5;
+$picnic-success: $color2;
+
+// Now import picnic and a couple of plugins
+@import '../node_modules/picnic/src/picnic';
+@import '../node_modules/mdi/css/materialdesignicons.css';
+
+
+
+
+
+$primary-bg-color:          $color5;
+$primary-bg-color-contrast: $color4;
+$secondary-bg-color:        $color3;
+
+$primary-color: $color1;
+
+body {
+    background-color: $primary-bg-color;
+    color:            $primary-bg-color-contrast;
+}
+
+nav {
+    background-color: $secondary-bg-color;
+
+    .mdi { margin-top: 5px; }
+
+    .brand {
+        color: $primary-bg-color-contrast;
+    }
+
+    .menu {
+        .pseudo, .button {
+            color: $primary-bg-color-contrast;
+        }
+        .pseudo:hover, .button:hover {
+            box-shadow: inset 0 0 0 99em rgba($primary-bg-color, 0.3);
+        }
+
+        .active, .active:hover, .active:focus {
+            color:            $primary-color;
+            // background-color: $primary-bg-color;
+            // line-height: 4em;
+            box-shadow: inset 0 0 0 99em rgba($primary-bg-color, 0.7);
+        }
+    }
+}
+
+form label {
+    color: $primary-bg-color;
+}
+
+button {
+    outline: none;
+}
+button:hover,
+.button:hover,
+[type=submit]:hover,
+button:focus,
+.button:focus,
+[type=submit]:focus {
+    box-shadow: inset 0 0 0 99em darken($primary-color, 10%);
+    border: 0;
+}

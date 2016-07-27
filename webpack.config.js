@@ -53,7 +53,11 @@ module.exports = {
                 loader: 'vue-style-loader!css-loader!postcss-loader'
             },
             {
-                test:   /\.(png|jpe?g|gif)(\?.*)?$/,
+                test:    /\.scss$/,
+                loader: 'vue-style-loader!css-loader!sass-loader'
+            },
+            {
+                test:   /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
@@ -65,7 +69,7 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name:  path.join(CONFIG.PATHS.OUTPUT_PATH, 'fonts/[name].[hash:7].[ext]')
+                    name:  'fonts/[name].[hash:7].[ext]'
                 }
             }
         ]
@@ -88,19 +92,8 @@ module.exports = {
     vue: {
         loaders: {
             css:     'vue-style-loader!css-loader',
-            postcss: 'vue-style-loader!css-loader'
-        },
-        postcss: {
-            plugins: [
-                require("postcss-import")({ addDependencyTo: webpack }),
-                require("postcss-url")(),
-                require("postcss-cssnext")(),
-                // add your "plugins" here
-                // ...
-                // and if you want to compress,
-                // just use css-loader option that already use cssnano under the hood
-                require("postcss-reporter")()
-            ]
+            postcss: 'vue-style-loader!css-loader',
+            scss:    'vue-style-loader!css-loader!sass-loader'
         }
     },
     devtool: '#source-map'

@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(Vuex);
 import App from './src/App.vue';
+import './_index.scss';
 
 import LoginView       from './src/views/LoginView';
 import HomeView        from './src/views/HomeView';
@@ -31,26 +32,30 @@ function requireAuth (route, redirect, next) {
 const router = new VueRouter({
     mode:            'history',
     base:            __dirname,
-    linkActiveClass: 'pure-menu-selected',
+    linkActiveClass: 'active',
 
     routes: [
     {
         path:        '/',
+        name:        'home',
         component:   HomeView,
         beforeEnter: requireAuth
     },
     {
         path:        '/dashboard',
+        name:        'dashboard',
         component:   DashboardView,
         beforeEnter: requireAuth
     },
     {
         path:        '/settings',
+        name:        'settings',
         component:   SettingsView,
         beforeEnter: requireAuth
     },
     {
         path:        '/users',
+        name:        'users',
         component:   UsersView,
         beforeEnter: requireAuth
     },
@@ -62,10 +67,12 @@ const router = new VueRouter({
     },
     {
         path:      '/login',
+        name:      'login',
         component: LoginView
     },
     {
         path: '/logout',
+        name: 'logout',
         beforeEnter (route, redirect) {
             // TODO: Move this into a route and call logout action
             store.dispatch('USER_DEAUTHENTICATED')

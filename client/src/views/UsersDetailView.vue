@@ -11,6 +11,7 @@ import { users }     from '../vuex/getters.js';
 
 // https://github.com/vuejs/vuex/blob/master/examples/shopping-cart/components/ProductList.vue
 export default {
+    name: 'UsersDetailView',
     vuex: {
         getters: {
             users: ({ users }) => users
@@ -28,5 +29,5 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 </style>

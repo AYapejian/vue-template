@@ -1,17 +1,9 @@
 <template>
-<div id="app">
+<div id="app" >
     <app-nav></app-nav>
 
-    <div id="app-content" class="content pure-g">
-
-        <div class="pure-u-2-24 content-left"></div>
-
-        <div class="pure-u-20-24 content-middle">
-            <!-- <home-view></home-view> -->
-            <router-view></router-view>
-        </div>
-
-        <div class="pure-u-2-24 content-right"></div>
+    <div class="view-wrapper flex one center grow">
+        <router-view></router-view>
     </div>
 </div>
 </template>
@@ -21,19 +13,22 @@ import AppNav   from './components/app/AppNav';
 import store    from './vuex/store';
 
 export default {
-    store: store,
+    name:       'App',
+    store:      store,
     components: { AppNav }
 }
 </script>
 
-<style lang="postcss">
-:root {
-    @import '../_index.css';
-}
-
+<style lang="scss">
 body {
-    color:            var(--themeColorBackgroundContrast);
-    background-color: var(--themeColorBackground);
-    padding-top:      55px;
+    padding-top: 55px;
+
+    .view-wrapper section {
+        max-width: 1440px;
+
+        & > .view-title {
+            text-align: center;
+        }
+    }
 }
 </style>

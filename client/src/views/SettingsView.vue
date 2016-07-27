@@ -8,9 +8,9 @@
 
 <script>
 export default {
-
+    name: 'SettingsView'
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 </style>

@@ -4,7 +4,7 @@
 
     <!-- TODO: Break this out to a UsersTable Component and a more general EntityTable component -->
     <!-- Or find a nice one already made on awesome-vue ;o)                                      -->
-    <table class="pure-table pure-table-horizontal">
+    <table class="primary">
         <thead>
             <tr>
                 <th>User ID</th>
@@ -32,6 +32,7 @@ import { users }     from '../vuex/getters.js';
 
 // https://github.com/vuejs/vuex/blob/master/examples/shopping-cart/components/ProductList.vue
 export default {
+    name: 'DashboardView',
     vuex: {
         getters: {
             users: ({ users }) => users
@@ -44,5 +45,5 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 </style>

@@ -1,23 +1,18 @@
 <template>
-    <section class="app-view f-col f-center">
-        <h1>Login</h1>
+    <section class="app-view login-view">
+        <h1 class="view-title">Login</h1>
 
-        <form class="pure-form pure-form-aligned" v-on:submit.prevent="onSubmitLogin(email, pass)">
+        <form class="" v-on:submit.prevent="onSubmitLogin(email, pass)">
             <fieldset>
-                <div class="pure-control-group">
-                    <label for="name">Email Address</label>
-                    <input id="name" type="text" placeholder="Email" v-model="email">
-                </div>
+                <label for="email">
+                    <input id="email" type="email" placeholder="Email" v-model="email">
+                </label>
 
-                <div class="pure-control-group">
-                    <label for="password">Password</label>
+                <label for="password">
                     <input id="password" type="password" placeholder="Password" v-model="pass">
-                </div>
+                </label>
 
-
-                <div class="pure-controls">
-                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
-                </div>
+                <button type="submit" class="button">Submit</button>
             </fieldset>
 
             <p v-show="error.hasError" class="error">{{ error.message }}</p>
@@ -29,6 +24,7 @@
 import { login } from '../vuex/actions.js';
 
 export default {
+    name: 'LoginView',
     vuex: {
         actions: { login }
     },
@@ -62,14 +58,13 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-:root {
-    @import '../../_index.css';
+<style lang="scss">
+.login-view > * {
+    max-width: 400px;
+    margin:    0 auto;
 }
-
-.pure-form {
-    & input {
-        color: var(--themeColorBackground);
-    }
+.login-view {
+    input, .button { margin: 5px; }
+    .button        { width: 100%; }
 }
 </style>
