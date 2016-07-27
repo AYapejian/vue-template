@@ -1,12 +1,23 @@
 'use strict';
-import Joi from 'joi';
+import Joi  from 'joi';
+import Boom from 'boom';
 const routes = module.exports = {};
 
 const _internals = { handlers: {} };
 
 _internals.handlers = {
     login: function login(request, reply) {
-        return reply({ status: 'success' });
+        const { email, password } = request.payload;
+
+        if (email !== 'admin@test.com' || password !== 'test') {
+            return reply(Boom.unauthorized('Email or password incorrect'));
+        }
+
+        return reply({
+            firstName: 'Joe',
+            lastName:  'Adminy',
+            email:     'admin@test.com'
+        }).header('x-auth-token', '123abc');
     },
     logout: function logout(request, reply) {
         return reply({});
@@ -25,7 +36,7 @@ routes.register = function register(server, options, next) {
             config: {
                 validate: {
                     payload: {
-                        user:     Joi.string().required(),
+                        email:    Joi.string().required(),
                         password: Joi.string().required()
                     }
                 }
