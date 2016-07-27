@@ -63,6 +63,10 @@ export default {
 </script>
 
 <style lang="postcss">
+:root {
+    @import '../../_index.css';
+}
+
 .pure-form {
     & input {
         color: var(--themeColorBackground);

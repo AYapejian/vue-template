@@ -10,13 +10,16 @@
             <router-link class="pure-menu-item" tag="li" to="/dashboard">
                 <a class="pure-menu-link">Dashboard</a>
             </router-link>
+            <router-link class="pure-menu-item" tag="li" to="/users">
+                <a class="pure-menu-link">Users</a>
+            </router-link>
         </ul>
 
         <ul class="pure-menu-list menu-list-right">
             <router-link class="pure-menu-item" tag="li" to="/logout">
                 <a class="pure-menu-link">Logout</a>
             </router-link>
-            
+
             <router-link class="pure-menu-item" tag="li" to="/settings">
                 <a class="pure-menu-link">Settings</a>
             </router-link>

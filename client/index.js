@@ -8,10 +8,12 @@ Vue.use(VueResource);
 Vue.use(Vuex);
 import App from './src/App.vue';
 
-import LoginView     from './src/views/LoginView';
-import HomeView      from './src/views/HomeView';
-import SettingsView  from './src/views/SettingsView';
-import DashboardView from './src/views/DashboardView';
+import LoginView       from './src/views/LoginView';
+import HomeView        from './src/views/HomeView';
+import SettingsView    from './src/views/SettingsView';
+import DashboardView   from './src/views/DashboardView';
+import UsersView       from './src/views/UsersView';
+import UsersDetailView from './src/views/UsersDetailView';
 
 import store from './src/vuex/store';
 
@@ -30,18 +32,8 @@ const router = new VueRouter({
     mode:            'history',
     base:            __dirname,
     linkActiveClass: 'pure-menu-selected',
-    routes:          [{
-        path:      '/login',
-        component: LoginView
-    },
-    {
-        path: '/logout',
-        beforeEnter (route, redirect) {
-            // TODO: Move this into a route and call logout action
-            store.dispatch('USER_DEAUTHENTICATED')
-            redirect('/login');
-        }
-    },
+
+    routes: [
     {
         path:        '/',
         component:   HomeView,
@@ -56,6 +48,29 @@ const router = new VueRouter({
         path:        '/settings',
         component:   SettingsView,
         beforeEnter: requireAuth
+    },
+    {
+        path:        '/users',
+        component:   UsersView,
+        beforeEnter: requireAuth
+    },
+    {
+        path:        '/users/:userId',
+        name:        'usersDetail',
+        component:   UsersDetailView,
+        beforeEnter: requireAuth
+    },
+    {
+        path:      '/login',
+        component: LoginView
+    },
+    {
+        path: '/logout',
+        beforeEnter (route, redirect) {
+            // TODO: Move this into a route and call logout action
+            store.dispatch('USER_DEAUTHENTICATED')
+            redirect('/login');
+        }
     }]
 });
 
