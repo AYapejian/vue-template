@@ -11,7 +11,7 @@
     <div class="menu" v-if="isAuthenticated">
         <router-link class="pseudo button" :to="{ name: 'home'}" exact>Home</router-link>
         <router-link class="pseudo button" :to="{ name: 'dashboard'}">Dashboard</router-link>
-        <router-link class="pseudo button" :to="{ name: 'users'}">User</router-link>
+        <router-link class="pseudo button" :to="{ name: 'users'}" exact>User</router-link>
         <router-link class="pseudo button" :to="{ name: 'settings'}">Settings</router-link>
         <router-link class="pseudo icon button" :to="{ name: 'logout'}">
             <i class="mdi mdi-logout-variant"></i>

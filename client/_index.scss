@@ -39,8 +39,6 @@ $picnic-success: $color2;
 
 
 
-
-
 $primary-bg-color:          $color5;
 $primary-bg-color-contrast: $color4;
 $secondary-bg-color:        $color3;
@@ -48,6 +46,7 @@ $secondary-bg-color:        $color3;
 $primary-color: $color1;
 
 body {
+    font-family:      'Roboto', sans-serif;
     background-color: $primary-bg-color;
     color:            $primary-bg-color-contrast;
 }
@@ -66,13 +65,11 @@ nav {
             color: $primary-bg-color-contrast;
         }
         .pseudo:hover, .button:hover {
-            box-shadow: inset 0 0 0 99em rgba($primary-bg-color, 0.3);
+            box-shadow: inset 0 0 0 99em rgba($primary-bg-color, 0.5);
         }
 
         .active, .active:hover, .active:focus {
-            color:            $primary-color;
-            // background-color: $primary-bg-color;
-            // line-height: 4em;
+            color:      $primary-color;
             box-shadow: inset 0 0 0 99em rgba($primary-bg-color, 0.7);
         }
     }
@@ -82,7 +79,7 @@ form label {
     color: $primary-bg-color;
 }
 
-button {
+button, a {
     outline: none;
 }
 button:hover,
